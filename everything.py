@@ -38,7 +38,7 @@ def draw_heading(x1, y1, x2, y2, num):
         wh = random.randint(-30, 40)
     elif num == 4:
         wh = random.randint(-20, 30)
-    draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b))
+    draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b + 100))
 
 
 # Draw a tag
@@ -54,7 +54,7 @@ def draw_s_tag(x1, y1, x2, y2):
     xs = random.randint(x1, x2)
     ys = random.randint(y1, y2)
     ws = random.randint(0, 2)
-    draw.rectangle([xs, ys, xs + ws, ys + ws], (r, g, b + 100))
+    draw.rectangle([xs, ys, xs + ws, ys + ws], (r + 100, g, b))
 
 
 # Draw headings and paragraphs no recursion
@@ -83,6 +83,10 @@ def run_draw_h_p_a_s(x1, y1, x2, y2, html):
     if a_num > 0:
         for a in range(a_num):
             draw_a_tag(x1, y1, x2, y2)
+    s_num = count_tag_no_rec('span', html)
+    if s_num > 0:
+        for sp in range(s_num):
+            draw_s_tag(x1, y1, x2, y2)
 
 
 # Draw headings and paragraphs no recursion
@@ -111,6 +115,10 @@ def run_draw_h_p_a_s_recursive(x1, y1, x2, y2, html):
     if a_num > 0:
         for a in range(a_num):
             draw_a_tag(x1, y1, x2, y2)
+    s_num = count_tag('span', html)
+    if s_num > 0:
+        for sp in range(s_num):
+            draw_s_tag(x1, y1, x2, y2)
 
 
 # Draw u_list
@@ -283,6 +291,6 @@ del draw
 del soup
 
 # Show image
-#im.show()
+im.show()
 # Save image
 im.save('landscape.jpg')
