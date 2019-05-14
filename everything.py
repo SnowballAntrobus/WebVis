@@ -293,4 +293,4 @@ del soup
 # Show image
 im.show()
 # Save image
-im.save('landscape.jpg')
+im.save('save2.jpg')
