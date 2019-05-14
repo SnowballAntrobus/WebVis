@@ -49,11 +49,10 @@ for i in range(points):
     w = random.gauss(section_w, section_w * .25)
     x = previous_x + w
     y = random.gauss(mean_y, deviation_y)
-    draw.line([(previous_x, previous_y), (x, y)], (r - 50, g - 50, b - 50))
+    draw.polygon([(previous_x, previous_y), (x, y), (x, 1080), (previous_x, 1080)], (r - 50, g - 50, b - 50))
     previous_x = x
     previous_y = y
-draw.line([(previous_x, previous_y), (1920, random.gauss(mean_y, deviation_y))], (r - 50, g - 50, b - 50))
-
+draw.polygon([(previous_x, previous_y), (1920, random.gauss(mean_y, deviation_y)), (1920, 1080), (previous_x, 1080)], (r - 50, g - 50, b - 50))
 
 
 # Draw land
