@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccae0c99-9d14-4157-bb95-660aef9bf002" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/save2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/everything.py" beforeDir="false" afterPath="$PROJECT_DIR$/everything.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landscape.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/save2.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/everything.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2277">
-              <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
+            <state relative-caret-position="250">
+              <caret line="306" lean-forward="true" selection-start-line="306" selection-end-line="306" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -97,7 +96,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="DockerRegistry" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -158,7 +157,7 @@
       <workItem from="1557796767210" duration="12453000" />
       <workItem from="1557818534362" duration="12133000" />
       <workItem from="1557844985537" duration="9911000" />
-      <workItem from="1557857111232" duration="1453000" />
+      <workItem from="1557857111232" duration="3193000" />
     </task>
     <task id="LOCAL-00001" summary="at least i draw a red rectangle">
       <created>1557809638900</created>
@@ -328,22 +327,36 @@
       <option name="project" value="LOCAL" />
       <updated>1557858489318</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="not sure what has changed">
+      <created>1557859055503</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1557859055503</updated>
+    </task>
+    <task id="LOCAL-00026" summary="does web url from arg i think i dont want to make a gui">
+      <created>1557860640368</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1557860640368</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35950000" />
+    <option name="totallyTimeSpent" value="37690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="23" width="1260" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26190478" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26190478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32928944" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24783362" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24783362" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986135" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -352,7 +365,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32928944" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32928944" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32928944" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32928944" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32928944" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -388,10 +401,12 @@
     <MESSAGE value="i would call this 1.0" />
     <MESSAGE value="i would call this 1.1" />
     <MESSAGE value="1.2 next up i add a url reader" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.2 next up i add a url reader" />
+    <MESSAGE value="not sure what has changed" />
+    <MESSAGE value="does web url from arg i think i dont want to make a gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="does web url from arg i think i dont want to make a gui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557858545056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557860446094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/random.py">
@@ -426,8 +441,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/everything.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2277">
-          <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
+        <state relative-caret-position="250">
+          <caret line="306" lean-forward="true" selection-start-line="306" selection-end-line="306" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
