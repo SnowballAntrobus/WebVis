@@ -22,8 +22,6 @@ r = random.randint(0, 225)
 g = random.randint(0, 225)
 b = random.randint(0, 225)
 
-# Draw land
-draw.rectangle([0, 0, 1920, 1080], (r + 50, g + 50, b + 50))
 # Draw sky
 draw.rectangle([0, 0, 1920, 720], (r, g, b))
 
@@ -41,7 +39,31 @@ for i in range(stars):
 # Mountain range setup
 points = count_tag("script")
 print("Points:", points)
+# Draw mountain range
+deviation_y = 100
+mean_y = 400
+previous_x = 0
+previous_y = random.gauss(mean_y, deviation_y)
+section_w = 1920 / points
+for i in range(points):
+    w = random.gauss(section_w, section_w * .25)
+    x = previous_x + w
+    y = random.gauss(mean_y, deviation_y)
+    draw.line([(previous_x, previous_y), (x, y)], (r - 50, g - 50, b - 50))
+    previous_x = x
+    previous_y = y
+draw.line([(previous_x, previous_y), (1920, random.gauss(mean_y, deviation_y))], (r - 50, g - 50, b - 50))
 
+
+
+# Draw land
+draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
+
+# Cleanup
 del draw
+del soup
+
+# Show image
 im.show()
+# Save image
 im.save('landscape.jpg')
