@@ -1,10 +1,20 @@
 from bs4 import BeautifulSoup as BS
 from PIL import Image, ImageDraw
 import random
+from selenium import webdriver
+import sys
+
+# Get argument
+url = sys.argv[1]
+
+# Site html setup from url
+browser = webdriver.Safari()
+browser.get(url)
+html_source = browser.page_source
 
 # Soup setup
-with open("index.html") as fp:
-    soup = BS(fp, 'html.parser')
+# with open("index.html") as fp:
+soup = BS(html_source, 'html.parser')
 
 
 # Tag Counter
