@@ -17,20 +17,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/everything.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2373">
-              <caret line="261" column="1" selection-start-line="261" selection-start-column="1" selection-end-line="261" selection-end-column="1" />
+            <state relative-caret-position="274">
+              <caret line="56" column="63" lean-forward="true" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2848">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -43,6 +34,14 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ul</find>
+      <find>x1</find>
+      <find>run_draw_heading_paragraph</find>
+      <find>draw_heading_paragraph_recursive</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -156,7 +155,8 @@
       <updated>1557796763446</updated>
       <workItem from="1557796767210" duration="12453000" />
       <workItem from="1557818534362" duration="12133000" />
-      <workItem from="1557844985537" duration="9879000" />
+      <workItem from="1557844985537" duration="9911000" />
+      <workItem from="1557857111232" duration="695000" />
     </task>
     <task id="LOCAL-00001" summary="at least i draw a red rectangle">
       <created>1557809638900</created>
@@ -298,17 +298,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557856358949</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="i would call this 1.0">
+      <created>1557856769555</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1557856769555</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34465000" />
+    <option name="totallyTimeSpent" value="35192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="23" width="1260" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25779969" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26190478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -355,10 +362,11 @@
     <MESSAGE value="readme" />
     <MESSAGE value="draw_list and refactoring, modulating" />
     <MESSAGE value="ulist done" />
-    <option name="LAST_COMMIT_MESSAGE" value="ulist done" />
+    <MESSAGE value="i would call this 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="i would call this 1.0" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557856675737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557857681254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/random.py">
@@ -383,7 +391,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2848">
+        <state relative-caret-position="870">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
@@ -393,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/everything.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2373">
-          <caret line="261" column="1" selection-start-line="261" selection-start-column="1" selection-end-line="261" selection-end-column="1" />
+        <state relative-caret-position="274">
+          <caret line="56" column="63" lean-forward="true" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
