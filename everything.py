@@ -41,17 +41,12 @@ def draw_heading_helper(x1, y1, x2, y2, num):
     draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b))
 
 
-# Draw li
-def draw_list(x1, y1, x2, y2, sub, num):
+# Draw ul
+def draw_list(x1, y1, x2, y2, sub):
     xl = random.randint(x1, x2)
     yl = random.randint(y1, y2)
+    wl = random.randint(20, 30)
     for il in range(sub + 1):
-        # Table
-        if num == 1:
-            wl = random.randint(40, 50)
-        # Unordered list
-        if num == 3:
-            wl = random.randint(20, 30)
         draw.rectangle([xl - wl * il, yl - wl * il, xl - wl * (il + 1), yl - wl * (il + 1)], (r - 100, g - 100, b - 100))
 
 
