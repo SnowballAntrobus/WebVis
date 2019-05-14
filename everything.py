@@ -3,6 +3,11 @@ from PIL import Image, ImageDraw, ImageColor
 import sys
 import random
 
+# Soup setup
+with open("index.html") as fp:
+    soup = BeautifulSoup(fp)
+soup = BeautifulSoup("<html>data</html>")
+
 # Image setup
 im = Image.open("index.jpg")
 draw = ImageDraw.Draw(im)
@@ -16,8 +21,6 @@ b = random.randint(0, 225)
 draw.rectangle([0, 0, 1920, 1080], (r, g, b))
 # Draw sky
 draw.rectangle([0, 0, 1920, 720], (r+50, g+50, b+50))
-
-
 
 del draw
 im.show()
