@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup as BS
-from PIL import Image, ImageDraw, ImageColor
-import sys
+from PIL import Image, ImageDraw
 import random
 
 # Soup setup
@@ -65,16 +64,40 @@ d = d.find('div')
 d = d.find('div')
 print(d)
 
-# Draw headings
-def draw_heading(x1, y1, x2, y2):
+
+# Draw paragraph
+def draw_paragraph(x1, y1, x2, y2):
     x = random.randint(x1, x2)
     y = random.randint(y1, y2)
-    w = random.randint()
+    w = random.randint(5, 10)
+    draw.polygon([(x, y), (x - w, y), (x - w * .5, y - w)], (r + 100, g + 100, b))
 
 
-# Draw li, ol, table
+# Draw li
+def draw_list(x1, y1, x2, y2, sub):
+    x = random.randint(x1, x2)
+    y = random.randint(y1, y2)
+    w = random.randint(10, 20)
+    for i in range(sub + 1):
+        draw.rectangle([x - w * i, y - w * i, x - w * (i + 1), y - w * (i + 1)], (r - 100, g - 100, b - 100))
 
-# Draw p
+
+# Draw heading
+def draw_heading(x1, y1, x2, y2, num):
+    x = random.randint(x1, x2)
+    y = random.randint(y1, y2)
+    if num == 1:
+        w = random.randint(20, 30)
+    elif num == 2:
+        w = random.randint(15, 25)
+    elif num == 3:
+        w = random.randint(10, 20)
+    elif num == 4:
+        w = random.randint(5, 10)
+    else:
+        w = random.randint(0, 5)
+    draw.ellipse([x, y, x - w, y - w], (r + 100, g + 100, b + 100))
+
 
 # Div Section
 def div_parsing(html):
