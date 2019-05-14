@@ -26,7 +26,7 @@ def draw_paragraph():
 
 
 # Draw heading
-def draw_heading_helper(x1, y1, x2, y2, num):
+def draw_heading(x1, y1, x2, y2, num):
     xh = random.randint(x1, x2)
     yh = random.randint(y1, y2)
     wh = 10
@@ -41,13 +41,21 @@ def draw_heading_helper(x1, y1, x2, y2, num):
     draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b))
 
 
-# Draw ul
+# Draw list
 def draw_list(x1, y1, x2, y2, sub):
     xl = random.randint(x1, x2)
     yl = random.randint(y1, y2)
-    wl = random.randint(20, 30)
-    for il in range(sub + 1):
-        draw.rectangle([xl - wl * il, yl - wl * il, xl - wl * (il + 1), yl - wl * (il + 1)], (r - 100, g - 100, b - 100))
+    hl = random.randint(20, 30)
+    for il in range(sub):
+        wl = random.randint(10, 20)
+        r_color = random.randint(80, 100)
+        draw.rectangle([xl, yl, xl + wl, yl - hl], (r - r_color, g - r_color, b - r_color))
+        xl = xl + wl
+
+
+# Run draw list
+def run_draw_list(x1, y1, x2, y2, html):
+    return
 
 
 # Draw table
@@ -55,15 +63,32 @@ def draw_table(x1, y1, x2, y2, row, col):
     xt = random.randint(x1, x2)
     yt = random.randint(y1, y2)
     wt = random.randint(40, 50)
-    ht = random.randint(10, 30)
+    ht = random.randint(5, 20)
     for row in range(row):
         for col in range(col):
             draw.rectangle([xt, yt, xt + wt, yt - ht], (r - 100, g - 100, b - 100))
             yt = yt - ht
 
 
-# Draw headings
-def draw_heading_paragraph(x1, y1, x2, y2, html):
+# Run table draw function with given html
+def run_draw_table(x1, y1, x2, y2, html):
+    table_num = count_tag_no_rec('table', html)
+    if table_num > 0:
+        table_next = html.find('table')
+        row = count_tag('tr', table_next)
+        col = count_tag('th', table_next)
+        draw_table(x1, y1, x2, y2, row, col)
+        draw_heading_paragraph_recursive(x1, y1, x2, y2, table_next)
+        for table in range(table_num - 1):
+            table_next = table_next.find_next_sibling('table')
+            row = count_tag('tr', table_next)
+            col = count_tag('th', table_next)
+            draw_table(x1, y1, x2, y2, row, col)
+            draw_heading_paragraph_recursive(x1, y1, x2, y2, table_next)
+
+
+# Draw headings and paragraphs no recursion
+def run_draw_heading_paragraph(x1, y1, x2, y2, html):
     p_num = count_tag_no_rec('p', html)
     if p_num > 0:
         for p in range(p_num):
@@ -71,48 +96,50 @@ def draw_heading_paragraph(x1, y1, x2, y2, html):
     h1_num = count_tag_no_rec('h1', html)
     if h1_num > 0:
         for h1 in range(h1_num):
-            draw_heading_helper(x1, y1, x2, y2, 1)
+            draw_heading(x1, y1, x2, y2, 1)
     h2_num = count_tag_no_rec('h2', html)
     if h2_num > 0:
         for h2 in range(h2_num):
-            draw_heading_helper(x1, y1, x2, y2, 2)
+            draw_heading(x1, y1, x2, y2, 2)
     h3_num = count_tag_no_rec('h3', html)
     if h3_num > 0:
         for h3 in range(h3_num):
-            draw_heading_helper(x1, y1, x2, y2, 3)
+            draw_heading(x1, y1, x2, y2, 3)
     h4_num = count_tag_no_rec('h4', html)
     if h4_num > 0:
         for h4 in range(h4_num):
-            draw_heading_helper(x1, y1, x2, y2, 4)
+            draw_heading(x1, y1, x2, y2, 4)
+
+
+# Draw headings and paragraphs no recursion
+def draw_heading_paragraph_recursive(x1, y1, x2, y2, html):
+    p_num = count_tag('p', html)
+    if p_num > 0:
+        for p in range(p_num):
+            draw_paragraph()
+    h1_num = count_tag('h1', html)
+    if h1_num > 0:
+        for h1 in range(h1_num):
+            draw_heading(x1, y1, x2, y2, 1)
+    h2_num = count_tag('h2', html)
+    if h2_num > 0:
+        for h2 in range(h2_num):
+            draw_heading(x1, y1, x2, y2, 2)
+    h3_num = count_tag('h3', html)
+    if h3_num > 0:
+        for h3 in range(h3_num):
+            draw_heading(x1, y1, x2, y2, 3)
+    h4_num = count_tag('h4', html)
+    if h4_num > 0:
+        for h4 in range(h4_num):
+            draw_heading(x1, y1, x2, y2, 4)
 
 
 # Div grouping function
 def div_parsing_helper(x1, y1, x2, y2, html):
-    '''
-    ul_num = count_tag_no_rec('ul', html)
-    if ul_num > 0:
-        next_ul = html.find('ul')
-        draw_list(x1, y1, x2, y2, count_tag('li', next_ul), 3)
-        draw_heading(x1, y1, x2, y2, next_ul)
-        for ul in range(ul_num - 1):
-            next_ul = next_ul.find_next_sibling('ul')
-            draw_list(x1, y1, x2, y2, count_tag('li', next_ul), 3)
-            draw_heading(x1, y1, x2, y2, next_ul)
-    '''
-    draw_heading_paragraph(x1, y1, x2, y2, html)
-    table_num = count_tag_no_rec('table', html)
-    if table_num > 0:
-        table_next = html.find('table')
-        row = count_tag('tr', table_next)
-        col = count_tag('th', table_next)
-        draw_table(x1, y1, x2, y2, row, col)
-        draw_heading_paragraph(x1, y1, x2, y2, table_next)
-        for table in range(table_num - 1):
-            table_next = table_next.find_next_sibling('table')
-            row = count_tag('tr', table_next)
-            col = count_tag('th', table_next)
-            draw_table(x1, y1, x2, y2, row, col)
-            draw_heading_paragraph(x1, y1, x2, y2, table_next)
+    run_draw_heading_paragraph(x1, y1, x2, y2, html)
+    run_draw_table(x1, y1, x2, y2, html)
+    run_draw_list(x1, y1, x2, y2, html)
     div_num = count_tag_no_rec("div", html)
     if div_num < 1:
         return
@@ -175,6 +202,11 @@ if points != 0:
 # Draw land
 draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
 
+# Draw elements not in div
+run_draw_table(0, 720, 1920, 1080, soup)
+run_draw_heading_paragraph(0, 720, 1920, 1080, soup)
+
+# Draw elements in div
 s = soup.find('body')
 div_parsing_helper(0, 720, 1920, 1080, s)
 
