@@ -1,4 +1,5 @@
 # Website visualizer
+![wikipedialandscape](https://raw.githubusercontent.com/SnowballAntrobus/A3_P2/master/landscape.jpg)
 ## Background for the second project of ARTV3
     python3 everything.py [url]
 It takes a website url and generates an image procedurally.<br>
