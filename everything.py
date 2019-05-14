@@ -17,6 +17,104 @@ def count_tag_no_rec(tag_name, html):
     return len(html.find_all(tag_name, recursive=False))
 
 
+# Draw paragraph
+def draw_paragraph():
+    xp = random.randint(0, 1920)
+    yp = random.randint(720, 1080)
+    wp = random.randint(-10, 50)
+    draw.polygon([(xp, yp), (xp - wp, yp), (xp - wp * .5, yp - wp)], (r + 100, g + 100, b))
+
+
+# Draw heading
+def draw_heading(x1, y1, x2, y2, num):
+    xh = random.randint(x1, x2)
+    yh = random.randint(y1, y2)
+    wh = 10
+    print("H1:", xh, yh)
+    if num == 1:
+        wh = random.randint(-60, 60)
+    elif num == 2:
+        wh = random.randint(-40, 50)
+    elif num == 3:
+        wh = random.randint(-30, 40)
+    elif num == 4:
+        wh = random.randint(-20, 30)
+    draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b))
+
+
+# Draw li
+def draw_list(x1, y1, x2, y2, sub, num):
+    x = random.randint(x1, x2)
+    y = random.randint(y1, y2)
+    for i in range(sub + 1):
+        # Table
+        if num == 1:
+            w = random.randint(40, 50)
+        # Unordered list
+        if num == 3:
+            w = random.randint(20, 30)
+        draw.rectangle([x - w * i, y - w * i, x - w * (i + 1), y - w * (i + 1)], (r - 100, g - 100, b - 100))
+
+
+# Ul grouping
+def ul_list_parsing(html):
+    ul_num = count_tag_no_rec('ul', html)
+    if ul_num < 1:
+        return 0
+    else:
+        next_ul = html.find("ul")
+        li_num = count_tag_no_rec('li', next_ul) + ul_list_parsing(next_ul)
+        for ul in range(ul_num - 1):
+            next_ul = next_ul.find_next_sibling('ul')
+            li_num += count_tag_no_rec('li', next_ul) + ul_list_parsing(next_ul)
+        return li_num
+
+
+# Div grouping function
+def div_parsing_helper(x1, y1, x2, y2, html):
+    ul_num = count_tag_no_rec('ul', html)
+    if ul_num > 0:
+        next_ul = html.find('ul')
+        draw_list(x1, y1, x2, y2, ul_list_parsing(next_ul), 3)
+        for p in range(ul_num - 1):
+            next_ul = next_ul.find_next_sibling('ul')
+            draw_list(x1, y1, x2, y2, ul_list_parsing(next_ul), 3)
+    h1_num = count_tag_no_rec('h1', html)
+    if h1_num > 0:
+        for h1 in range(h1_num):
+            print("h1")
+            draw_heading(x1, y1, x2, y2, 1)
+    h2_num = count_tag_no_rec('h2', html)
+    if h2_num > 0:
+        for h2 in range(h2_num):
+            print("h2")
+            draw_heading(x1, y1, x2, y2, 2)
+    h3_num = count_tag_no_rec('h3', html)
+    if h3_num > 0:
+        for h3 in range(h3_num):
+            print("h3")
+            draw_heading(x1, y1, x2, y2, 3)
+    h4_num = count_tag_no_rec('h4', html)
+    if h4_num > 0:
+        for h4 in range(h4_num):
+            print("h4")
+            draw_heading(x1, y1, x2, y2, 4)
+    div_num = count_tag_no_rec("div", html)
+    if div_num < 1:
+        return
+    else:
+        c = 300
+        x_div = int(random.gauss(960, 500))
+        y_div = int(random.gauss(800, 50))
+        next_div = html.find("div")
+        div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
+        for div in range(div_num - 1):
+            x_div = int(random.gauss(960, 500))
+            y_div = int(random.gauss(800, 50))
+            next_div = next_div.find_next_sibling("div")
+            div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
+
+
 # Image setup
 im = Image.open("index.jpg")
 draw = ImageDraw.Draw(im)
@@ -63,83 +161,9 @@ if points != 0:
 # Draw land
 draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
 
-
-# Draw paragraph
-def draw_paragraph(x1, y1, x2, y2):
-    xp = random.randint(0, 1920)
-    yp = random.randint(720, 1080)
-    wp = random.randint(-10, 50)
-    draw.polygon([(xp, yp), (xp - wp, yp), (xp - wp * .5, yp - wp)], (r + 100, g + 100, b))
-
-
-# Draw li
-def draw_list(x1, y1, x2, y2, sub):
-    x = random.randint(x1, x2)
-    y = random.randint(y1, y2)
-    w = random.randint(10, 20)
-    for i in range(sub + 1):
-        draw.rectangle([x - w * i, y - w * i, x - w * (i + 1), y - w * (i + 1)], (r - 100, g - 100, b - 100))
-
-
-# Draw heading
-def draw_heading(x1, y1, x2, y2, num):
-    xh = random.randint(x1, x2)
-    yh = random.randint(y1, y2)
-    wh = 10
-    print("H1:", xh, yh)
-    if num == 1:
-        wh = random.randint(-60, 60)
-    elif num == 2:
-        wh = random.randint(-40, 50)
-    elif num == 3:
-        wh = random.randint(-30, 40)
-    elif num == 4:
-        wh = random.randint(-20, 30)
-    draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b))
-
-
-# Div grouping function
-def div_parsing_helper(x1, y1, x2, y2, html):
-    p_num = count_tag_no_rec('p', html)
-    if p_num > 0:
-        for p in range(p_num):
-            print("p")
-            draw_paragraph(x1, y1, x2, y2)
-    h1_num = count_tag_no_rec('h1', html)
-    if h1_num > 0:
-        for h1 in range(h1_num):
-            print("h1")
-            draw_heading(x1, y1, x2, y2, 1)
-    h2_num = count_tag_no_rec('h2', html)
-    if h2_num > 0:
-        for h2 in range(h2_num):
-            print("h2")
-            draw_heading(x1, y1, x2, y2, 2)
-    h3_num = count_tag_no_rec('h3', html)
-    if h3_num > 0:
-        for h3 in range(h3_num):
-            print("h3")
-            draw_heading(x1, y1, x2, y2, 3)
-    h4_num = count_tag_no_rec('h4', html)
-    if h4_num > 0:
-        for h4 in range(h4_num):
-            print("h4")
-            draw_heading(x1, y1, x2, y2, 4)
-    div_num = count_tag_no_rec("div", html)
-    if div_num < 1:
-        return
-    else:
-        c = 300
-        x_div = int(random.gauss(960, 500))
-        y_div = int(random.gauss(800, 50))
-        next_div = html.find("div")
-        div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
-        for div in range(div_num - 1):
-            x_div = int(random.gauss(960, 500))
-            y_div = int(random.gauss(800, 50))
-            next_div = next_div.find_next_sibling("div")
-            div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
-
+# Draw the paragraphs
+for p in range(count_tag('p', soup)):
+    draw_paragraph()
 
 s = soup.find('body')
 div_parsing_helper(0, 720, 1920, 1080, s)
