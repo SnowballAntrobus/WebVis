@@ -70,6 +70,35 @@ def run_draw_u_list(x1, y1, x2, y2, html):
             draw_heading_paragraph_recursive(x1, y1, x2, y2, ul_next)
 
 
+# Draw o_list
+def draw_o_list(x1, y1, x2, y2, sub):
+    xl = random.randint(x1, x2)
+    yl = random.randint(y1, y2)
+    hl = random.randint(10, 20)
+    for ol in range(sub):
+        wl = random.randint(10, 20)
+        r_color = random.randint(80, 100)
+        draw.rectangle([xl, yl, xl - wl, yl + hl], (r + r_color, g + r_color, b + r_color))
+        xl = xl + wl
+
+
+# Run draw o_list
+def run_draw_o_list(x1, y1, x2, y2, html):
+    ol_num = count_tag_no_rec('ol', html)
+    if ol_num > 0:
+        ol_next = html.find('ol')
+        li_num = count_tag('li', ol_next)
+        draw_u_list(x1, y1, x2, y2, li_num)
+        draw_heading_paragraph_recursive(x1, y1, x2, y2, ol_next)
+        for ol in range(ol_num - 1):
+            ol_next = ol_next.find_next_sibling('ol')
+            if ol_next is None:
+                return
+            li_num = count_tag('li', ol_next)
+            draw_u_list(x1, y1, x2, y2, li_num)
+            draw_heading_paragraph_recursive(x1, y1, x2, y2, ol_next)
+
+
 # Draw table
 def draw_table(x1, y1, x2, y2, row, col):
     xt = random.randint(x1, x2)
@@ -152,6 +181,7 @@ def div_parsing_helper(x1, y1, x2, y2, html):
     run_draw_heading_paragraph(x1, y1, x2, y2, html)
     run_draw_table(x1, y1, x2, y2, html)
     run_draw_u_list(x1, y1, x2, y2, html)
+    run_draw_o_list(x1, y1, x2, y2, html)
     div_num = count_tag_no_rec("div", html)
     if div_num < 1:
         return
@@ -217,6 +247,7 @@ draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
 # Draw elements not in div
 run_draw_table(0, 720, 1920, 1080, soup)
 run_draw_u_list(0, 720, 1920, 1080, soup)
+run_draw_o_list(0, 720, 1920, 1080, soup)
 run_draw_heading_paragraph(0, 720, 1920, 1080, soup)
 
 # Draw elements in div
@@ -228,6 +259,6 @@ del draw
 del soup
 
 # Show image
-im.show()
+#im.show()
 # Save image
 im.save('landscape.jpg')
