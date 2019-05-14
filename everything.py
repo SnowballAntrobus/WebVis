@@ -66,10 +66,10 @@ draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
 
 # Draw paragraph
 def draw_paragraph(x1, y1, x2, y2):
-    x = random.randint(x1, x2)
-    y = random.randint(y1, y2)
-    w = random.randint(5, 10)
-    draw.polygon([(x, y), (x - w, y), (x - w * .5, y - w)], (r + 100, g + 100, b))
+    xp = random.randint(x1, x2)
+    yp = random.randint(y1, y2)
+    wp = random.randint(5, 10)
+    draw.polygon([(xp, yp), (xp - wp, yp), (xp - wp * .5, yp - wp)], (r + 100, g + 100, b))
 
 
 # Draw li
@@ -83,40 +83,47 @@ def draw_list(x1, y1, x2, y2, sub):
 
 # Draw heading
 def draw_heading(x1, y1, x2, y2, num):
-    x = random.randint(x1, x2)
-    y = random.randint(y1, y2)
+    xh = random.randint(x1, x2)
+    yh = random.randint(y1, y2)
+    print("H1:", xh, yh)
     if num == 1:
-        w = random.randint(20, 30)
+        wh = random.randint(200, 300)
     elif num == 2:
-        w = random.randint(15, 25)
+        wh = random.randint(15, 25)
     elif num == 3:
-        w = random.randint(10, 20)
+        wh = random.randint(10, 20)
     elif num == 4:
-        w = random.randint(5, 10)
-    draw.ellipse([x, y, x - w, y - w], (r + 100, g + 100, b + 100))
+        wh = random.randint(5, 10)
+    draw.ellipse([xh, yh, xh - wh, yh - wh], (r, g, b))
 
 
 # Div grouping function
 def div_parsing_helper(x1, y1, x2, y2, html):
+    print("div")
     p_num = count_tag_no_rec('p', html)
     if p_num > 0:
         for p in range(p_num):
+            print("p")
             draw_paragraph(x1, y1, x2, y2)
     h1_num = count_tag_no_rec('h1', html)
     if h1_num > 0:
         for h1 in range(h1_num):
+            print("h1")
             draw_heading(x1, y1, x2, y2, 1)
     h2_num = count_tag_no_rec('h2', html)
     if h2_num > 0:
         for h2 in range(h2_num):
+            print("h2")
             draw_heading(x1, y1, x2, y2, 2)
     h3_num = count_tag_no_rec('h3', html)
     if h3_num > 0:
         for h3 in range(h3_num):
+            print("h3")
             draw_heading(x1, y1, x2, y2, 3)
     h4_num = count_tag_no_rec('h4', html)
     if h4_num > 0:
         for h4 in range(h4_num):
+            print("h4")
             draw_heading(x1, y1, x2, y2, 4)
     div_num = count_tag_no_rec("div", html)
     if div_num < 1:
@@ -124,15 +131,15 @@ def div_parsing_helper(x1, y1, x2, y2, html):
     else:
         x1_div = random.randint(x1, x2)
         y1_div = random.randint(y1, y2)
-        w = random.randint((x2 - x1) / div_num)
+        w = random.randint(int(abs(x2 - x1) / div_num * .25), int(abs(x2 - x1) / div_num))
         next_div = html.find("div")
-        div_parsing_helper(x1_div, y1_div, x1_div - w, y1_div - w, next_div)
+        div_parsing_helper(x1_div - w, y1_div - w, x1_div, y1_div, next_div)
         for div in range(div_num - 1):
             x1_div = random.randint(x1, x2)
             y1_div = random.randint(y1, y2)
-            w = random.randint((x2 - x1) / div_num)
+            w = random.randint(int(abs(x2 - x1) / div_num * .25), int(abs(x2 - x1) / div_num))
             next_div = next_div.find_next_sibling("div")
-            div_parsing_helper(x1_div, y1_div, x1_div - w, y1_div - w, next_div)
+            div_parsing_helper(x1_div - w, y1_div - w, x1_div, y1_div, next_div)
 
 
 s = soup.find('body')
