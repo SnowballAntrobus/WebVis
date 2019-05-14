@@ -6,7 +6,11 @@ import random
 im = Image.open("index.jpg")
 draw = ImageDraw.Draw(im)
 
-draw.rectangle([0, 0, 1920, 1080], (255, 0, 0))
+r = random.randint(0, 225)
+g = random.randint(0, 225)
+b = random.randint(0, 225)
+
+draw.rectangle([0, 0, 1920, 1080], (r, g, b))
 
 
 del draw
