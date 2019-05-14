@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccae0c99-9d14-4157-bb95-660aef9bf002" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/everything.py" beforeDir="false" afterPath="$PROJECT_DIR$/everything.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landscape.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/landscape.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,15 +17,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/everything.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="12">
+              <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#2037#2282#0" />
-                <element signature="e#2393#2485#0" />
-                <element signature="e#2555#2647#0" />
-                <element signature="e#2717#2809#0" />
-                <element signature="e#2879#2971#0" />
               </folding>
             </state>
           </provider>
@@ -149,7 +146,7 @@
       <updated>1557796763446</updated>
       <workItem from="1557796767210" duration="12453000" />
       <workItem from="1557818534362" duration="12133000" />
-      <workItem from="1557844985537" duration="2319000" />
+      <workItem from="1557844985537" duration="5766000" />
     </task>
     <task id="LOCAL-00001" summary="at least i draw a red rectangle">
       <created>1557809638900</created>
@@ -249,22 +246,36 @@
       <option name="project" value="LOCAL" />
       <updated>1557831127960</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="next i need to fix the ul grouping and add table grouping">
+      <created>1557847642789</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557847642789</updated>
+    </task>
+    <task id="LOCAL-00016" summary="starting table">
+      <created>1557848648324</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1557848648324</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26905000" />
+    <option name="totallyTimeSpent" value="30352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="23" width="1260" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25779969" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25779969" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32928944" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32928944" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32928944" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986135" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -300,22 +311,14 @@
     <MESSAGE value="where is everything?!!" />
     <MESSAGE value="cant figure out distribution?????" />
     <MESSAGE value="artistic improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="artistic improvement" />
+    <MESSAGE value="next i need to fix the ul grouping and add table grouping" />
+    <MESSAGE value="starting table" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting table" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557845009709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557852038403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/landscape.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-894">
@@ -323,17 +326,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/landscape.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4168">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/everything.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="12">
+          <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#2037#2282#0" />
-            <element signature="e#2393#2485#0" />
-            <element signature="e#2555#2647#0" />
-            <element signature="e#2717#2809#0" />
-            <element signature="e#2879#2971#0" />
           </folding>
         </state>
       </provider>
