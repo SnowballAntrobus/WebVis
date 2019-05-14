@@ -8,8 +8,13 @@ with open("index.html") as fp:
 
 
 # Tag Counter
-def count_tag(tag_name):
-    return len(soup.find_all(tag_name))
+def count_tag(tag_name, html):
+    return len(html.find_all(tag_name))
+
+
+# Tag Counter no recursion
+def count_tag_no_rec(tag_name, html):
+    return len(html.find_all(tag_name, recursive=False))
 
 
 # Image setup
@@ -25,7 +30,7 @@ b = random.randint(0, 225)
 draw.rectangle([0, 0, 1920, 720], (r, g, b))
 
 # Stars setup
-stars = count_tag("link")
+stars = count_tag("link", soup)
 print("Stars:", stars)
 # Draw Stars
 for i in range(stars):
@@ -36,7 +41,7 @@ for i in range(stars):
 
 
 # Mountain range setup
-points = count_tag("script")
+points = count_tag("script", soup)
 print("Points:", points)
 if points != 0:
     # Draw mountain range
@@ -57,12 +62,6 @@ if points != 0:
 
 # Draw land
 draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
-
-d = soup.find('div')
-d = d.find('div')
-d = d.find('div')
-d = d.find('div')
-print(d)
 
 
 # Draw paragraph
@@ -94,24 +93,56 @@ def draw_heading(x1, y1, x2, y2, num):
         w = random.randint(10, 20)
     elif num == 4:
         w = random.randint(5, 10)
-    else:
-        w = random.randint(0, 5)
     draw.ellipse([x, y, x - w, y - w], (r + 100, g + 100, b + 100))
 
 
-# Div Section
-def div_parsing(html):
-    if count_tag("div") > 0:
+# Div grouping function
+def div_parsing_helper(x1, y1, x2, y2, html):
+    p_num = count_tag_no_rec('p', html)
+    if p_num > 0:
+        for p in range(p_num):
+            draw_paragraph(x1, y1, x2, y2)
+    h1_num = count_tag_no_rec('h1', html)
+    if h1_num > 0:
+        for h1 in range(h1_num):
+            draw_heading(x1, y1, x2, y2, 1)
+    h2_num = count_tag_no_rec('h2', html)
+    if h2_num > 0:
+        for h2 in range(h2_num):
+            draw_heading(x1, y1, x2, y2, 2)
+    h3_num = count_tag_no_rec('h3', html)
+    if h3_num > 0:
+        for h3 in range(h3_num):
+            draw_heading(x1, y1, x2, y2, 3)
+    h4_num = count_tag_no_rec('h4', html)
+    if h4_num > 0:
+        for h4 in range(h4_num):
+            draw_heading(x1, y1, x2, y2, 4)
+    div_num = count_tag_no_rec("div", html)
+    if div_num < 1:
         return
     else:
-        div_parsing(html)
+        x1_div = random.randint(x1, x2)
+        y1_div = random.randint(y1, y2)
+        w = random.randint((x2 - x1) / div_num)
+        next_div = html.find("div")
+        div_parsing_helper(x1_div, y1_div, x1_div - w, y1_div - w, next_div)
+        for div in range(div_num - 1):
+            x1_div = random.randint(x1, x2)
+            y1_div = random.randint(y1, y2)
+            w = random.randint((x2 - x1) / div_num)
+            next_div = next_div.find_next_sibling("div")
+            div_parsing_helper(x1_div, y1_div, x1_div - w, y1_div - w, next_div)
 
+
+s = soup.find('body')
+div_parsing_helper(0, 720, 1920, 1080, s)
 
 # Cleanup
 del draw
 del soup
 
 # Show image
-#im.show()
+im.show()
 # Save image
 im.save('landscape.jpg')
