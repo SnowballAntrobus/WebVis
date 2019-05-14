@@ -67,6 +67,14 @@ def draw_s_tag(x1, y1, x2, y2):
     draw.rectangle([xs, ys, xs + ws, ys + ws], (r + 100, g, b))
 
 
+# Draw img tag
+def draw_img_tag(x1, y1, x2, y2):
+    xs = random.randint(x1, x2)
+    ys = random.randint(y1, y2)
+    ws = random.randint(5, 10)
+    draw.rectangle([xs, ys, xs + ws, ys + ws], (r, g, b+100))
+
+
 # Draw headings and paragraphs no recursion
 def run_draw_h_p_a_s(x1, y1, x2, y2, html):
     p_num = count_tag_no_rec('p', html)
@@ -89,6 +97,10 @@ def run_draw_h_p_a_s(x1, y1, x2, y2, html):
     if h4_num > 0:
         for h4 in range(h4_num):
             draw_heading(x1, y1, x2, y2, 4)
+    img_num = count_tag_no_rec('img', html)
+    if img_num > 0:
+        for img in range(img_num):
+            draw_img_tag(x1, y1, x2, y2)
     a_num = count_tag_no_rec('a', html)
     if a_num > 0:
         for a in range(a_num):
@@ -122,6 +134,10 @@ def run_draw_h_p_a_s_recursive(x1, y1, x2, y2, html):
         for h4 in range(h4_num):
             draw_heading(x1, y1, x2, y2, 4)
     a_num = count_tag('a', html)
+    img_num = count_tag('img', html)
+    if img_num > 0:
+        for img in range(img_num):
+            draw_img_tag(x1, y1, x2, y2)
     if a_num > 0:
         for a in range(a_num):
             draw_a_tag(x1, y1, x2, y2)
