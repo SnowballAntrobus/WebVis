@@ -66,8 +66,8 @@ draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
 
 # Draw paragraph
 def draw_paragraph(x1, y1, x2, y2):
-    xp = random.randint(x1, x2)
-    yp = random.randint(y1, y2)
+    xp = random.randint(0, 1920)
+    yp = random.randint(720, 1080)
     wp = random.randint(-10, 50)
     draw.polygon([(xp, yp), (xp - wp, yp), (xp - wp * .5, yp - wp)], (r + 100, g + 100, b))
 
@@ -129,17 +129,16 @@ def div_parsing_helper(x1, y1, x2, y2, html):
     if div_num < 1:
         return
     else:
-        x1_div = int(random.gauss(960, 100))
-        y1_div = int(random.gauss(900, 50))
-        #w = random.randint(int(abs(x2 - x1) / div_num * .25), int(abs(x2 - x1) / div_num))
+        c = 300
+        x_div = int(random.gauss(960, 500))
+        y_div = int(random.gauss(800, 50))
         next_div = html.find("div")
-        div_parsing_helper(x1_div, y1_div, x2, y2, next_div)
+        div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
         for div in range(div_num - 1):
-            x1_div = int(random.gauss(160, 100))
-            y1_div = int(random.gauss(900, 50))
-            #w = random.randint(int(abs(x2 - x1) / div_num * .25), int(abs(x2 - x1) / div_num))
+            x_div = int(random.gauss(960, 500))
+            y_div = int(random.gauss(800, 50))
             next_div = next_div.find_next_sibling("div")
-            div_parsing_helper(x1_div, y1_div, x2, y2, next_div)
+            div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
 
 
 s = soup.find('body')
