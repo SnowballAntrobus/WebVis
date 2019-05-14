@@ -45,7 +45,7 @@ def draw_heading(x1, y1, x2, y2, num):
 def draw_a_tag(x1, y1, x2, y2):
     xa = random.randint(x1, x2)
     ya = random.randint(y1, y2)
-    wa = random.randint(0, 2)
+    wa = random.randint(0, 1)
     draw.rectangle([xa, ya, xa + wa, ya + wa], (r, g, b + 100))
 
 
@@ -53,7 +53,7 @@ def draw_a_tag(x1, y1, x2, y2):
 def draw_s_tag(x1, y1, x2, y2):
     xs = random.randint(x1, x2)
     ys = random.randint(y1, y2)
-    ws = random.randint(0, 2)
+    ws = random.randint(0, 1)
     draw.rectangle([xs, ys, xs + ws, ys + ws], (r + 100, g, b))
 
 

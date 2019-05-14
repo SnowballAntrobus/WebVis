@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccae0c99-9d14-4157-bb95-660aef9bf002" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/everything.py" beforeDir="false" afterPath="$PROJECT_DIR$/everything.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landscape.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/landscape.jpg" afterDir="false" />
     </list>
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/everything.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="56" column="63" lean-forward="true" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
+            <state relative-caret-position="222">
+              <caret line="291" lean-forward="true" selection-start-line="291" selection-end-line="291" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -41,6 +40,7 @@
       <find>x1</find>
       <find>run_draw_heading_paragraph</find>
       <find>draw_heading_paragraph_recursive</find>
+      <find>s</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,7 +156,7 @@
       <workItem from="1557796767210" duration="12453000" />
       <workItem from="1557818534362" duration="12133000" />
       <workItem from="1557844985537" duration="9911000" />
-      <workItem from="1557857111232" duration="695000" />
+      <workItem from="1557857111232" duration="904000" />
     </task>
     <task id="LOCAL-00001" summary="at least i draw a red rectangle">
       <created>1557809638900</created>
@@ -305,11 +305,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557856769555</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="i would call this 1.1">
+      <created>1557857813330</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1557857813331</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35192000" />
+    <option name="totallyTimeSpent" value="35401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="23" width="1260" height="669" extended-state="0" />
@@ -363,10 +370,11 @@
     <MESSAGE value="draw_list and refactoring, modulating" />
     <MESSAGE value="ulist done" />
     <MESSAGE value="i would call this 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="i would call this 1.0" />
+    <MESSAGE value="i would call this 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="i would call this 1.1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557857681254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3_P2$everything.coverage" NAME="everything Coverage Results" MODIFIED="1557858476695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/random.py">
@@ -401,8 +409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/everything.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="56" column="63" lean-forward="true" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
+        <state relative-caret-position="222">
+          <caret line="291" lean-forward="true" selection-start-line="291" selection-end-line="291" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
