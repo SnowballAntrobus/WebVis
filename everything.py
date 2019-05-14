@@ -26,7 +26,7 @@ def draw_paragraph():
 
 
 # Draw heading
-def draw_heading(x1, y1, x2, y2, num):
+def draw_heading_helper(x1, y1, x2, y2, num):
     xh = random.randint(x1, x2)
     yh = random.randint(y1, y2)
     wh = 10
@@ -56,29 +56,8 @@ def draw_list(x1, y1, x2, y2, sub, num):
         draw.rectangle([x - w * i, y - w * i, x - w * (i + 1), y - w * (i + 1)], (r - 100, g - 100, b - 100))
 
 
-# Ul grouping
-def ul_list_parsing(html):
-    ul_num = count_tag_no_rec('ul', html)
-    if ul_num < 1:
-        return 0
-    else:
-        next_ul = html.find("ul")
-        li_num = count_tag_no_rec('li', next_ul) + ul_list_parsing(next_ul)
-        for ul in range(ul_num - 1):
-            next_ul = next_ul.find_next_sibling('ul')
-            li_num += count_tag_no_rec('li', next_ul) + ul_list_parsing(next_ul)
-        return li_num
-
-
-# Div grouping function
-def div_parsing_helper(x1, y1, x2, y2, html):
-    ul_num = count_tag_no_rec('ul', html)
-    if ul_num > 0:
-        next_ul = html.find('ul')
-        draw_list(x1, y1, x2, y2, ul_list_parsing(next_ul), 3)
-        for p in range(ul_num - 1):
-            next_ul = next_ul.find_next_sibling('ul')
-            draw_list(x1, y1, x2, y2, ul_list_parsing(next_ul), 3)
+# Draw headings
+def draw_heading(x1, y1, x2, y2, html):
     h1_num = count_tag_no_rec('h1', html)
     if h1_num > 0:
         for h1 in range(h1_num):
@@ -99,6 +78,29 @@ def div_parsing_helper(x1, y1, x2, y2, html):
         for h4 in range(h4_num):
             print("h4")
             draw_heading(x1, y1, x2, y2, 4)
+
+
+# Div grouping function
+def div_parsing_helper(x1, y1, x2, y2, html):
+    ul_num = count_tag_no_rec('ul', html)
+    if ul_num > 0:
+        next_ul = html.find('ul')
+        draw_list(x1, y1, x2, y2, count_tag('li', next_ul), 3)
+        draw_heading(x1, y1, x2, y2, next_ul)
+        for ul in range(ul_num - 1):
+            next_ul = next_ul.find_next_sibling('ul')
+            draw_list(x1, y1, x2, y2, count_tag('li', next_ul), 3)
+            draw_heading(x1, y1, x2, y2, next_ul)
+    table_num = count_tag_no_rec('table', html)
+    if ul_num > 0:
+        next_ul = html.find('ul')
+        draw_list(x1, y1, x2, y2, count_tag('li', next_ul), 3)
+        draw_heading(x1, y1, x2, y2, next_ul)
+        for ul in range(ul_num - 1):
+            next_ul = next_ul.find_next_sibling('ul')
+            draw_list(x1, y1, x2, y2, count_tag('li', next_ul), 3)
+            draw_heading(x1, y1, x2, y2, next_ul)
+    draw_heading(x1, y1, x2, y2, html)
     div_num = count_tag_no_rec("div", html)
     if div_num < 1:
         return
