@@ -41,11 +41,11 @@ def draw_heading(x1, y1, x2, y2, num):
     draw.ellipse([xh, yh, xh + wh, yh + wh], (r + 100, g, b))
 
 
-# Draw list
-def draw_list(x1, y1, x2, y2, sub):
+# Draw u_list
+def draw_u_list(x1, y1, x2, y2, sub):
     xl = random.randint(x1, x2)
     yl = random.randint(y1, y2)
-    hl = random.randint(20, 30)
+    hl = random.randint(10, 20)
     for il in range(sub):
         wl = random.randint(10, 20)
         r_color = random.randint(80, 100)
@@ -53,9 +53,21 @@ def draw_list(x1, y1, x2, y2, sub):
         xl = xl + wl
 
 
-# Run draw list
-def run_draw_list(x1, y1, x2, y2, html):
-    return
+# Run draw u_list
+def run_draw_u_list(x1, y1, x2, y2, html):
+    ul_num = count_tag_no_rec('ul', html)
+    if ul_num > 0:
+        ul_next = html.find('ul')
+        li_num = count_tag('li', ul_next)
+        draw_u_list(x1, y1, x2, y2, li_num)
+        draw_heading_paragraph_recursive(x1, y1, x2, y2, ul_next)
+        for ul in range(ul_num - 1):
+            ul_next = ul_next.find_next_sibling('ul')
+            if ul_next is None:
+                return
+            li_num = count_tag('li', ul_next)
+            draw_u_list(x1, y1, x2, y2, li_num)
+            draw_heading_paragraph_recursive(x1, y1, x2, y2, ul_next)
 
 
 # Draw table
@@ -139,7 +151,7 @@ def draw_heading_paragraph_recursive(x1, y1, x2, y2, html):
 def div_parsing_helper(x1, y1, x2, y2, html):
     run_draw_heading_paragraph(x1, y1, x2, y2, html)
     run_draw_table(x1, y1, x2, y2, html)
-    run_draw_list(x1, y1, x2, y2, html)
+    run_draw_u_list(x1, y1, x2, y2, html)
     div_num = count_tag_no_rec("div", html)
     if div_num < 1:
         return
@@ -204,6 +216,7 @@ draw.rectangle([0, 720, 1920, 1080], (r + 50, g + 50, b + 50))
 
 # Draw elements not in div
 run_draw_table(0, 720, 1920, 1080, soup)
+run_draw_u_list(0, 720, 1920, 1080, soup)
 run_draw_heading_paragraph(0, 720, 1920, 1080, soup)
 
 # Draw elements in div
