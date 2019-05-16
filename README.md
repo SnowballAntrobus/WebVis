@@ -1,5 +1,4 @@
 # Website visualizer
-![wikipedialandscape](https://raw.githubusercontent.com/SnowballAntrobus/A3_P2/master/landscape.jpg)
 ![wikipedialandscapelabeld](https://raw.githubusercontent.com/SnowballAntrobus/A3_P2/master/landscape.png)
 ## Background for the second project of ARTV3
     python3 everything.py [url]
