@@ -253,6 +253,8 @@ def div_parsing_helper(x1, y1, x2, y2, html):
             x_div = int(random.gauss(960, 500))
             y_div = int(random.gauss(800, 50))
             next_div = next_div.find_next_sibling("div")
+            if next_div is None:
+                return
             div_parsing_helper(x_div, y_div, x_div + c, y_div + c, next_div)
 
 
@@ -319,4 +321,4 @@ del soup
 # Show image
 im.show()
 # Save image
-im.save('landscape.jpg')
+im.save('landscape.png')
